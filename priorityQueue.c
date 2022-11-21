@@ -57,6 +57,23 @@ int main()
 }while(option!=4);
 }
 
+struct node *delete(struct node *start)
+{
+    struct node *ptr;
+    if(start==NULL)
+    {
+        printf("\n NO PATIENT RECORD TO DELETE");
+        return;
+    }
+    else
+    {
+        ptr= start;
+        printf("\n Deleted Record is : %d",ptr->reg);
+        start=start->next;
+        free(ptr);
+    }
+    return start;
+};
 
 void table()
 {
