@@ -73,7 +73,28 @@ struct node *delete(struct node *start)
     }
     return start;
 };
-
+void display(struct node *start)
+{
+    struct node *ptr;
+    ptr=start;
+    if(start==NULL)
+        printf("\nTHERE IS NO PATIENT");
+    else
+    {
+        printf("Priority wise appointments are:");
+        while(ptr!=NULL)
+        {
+            printf("The name of patient is:%s\n",ptr->name);
+                printf("The age of patient is:%d\n",ptr->age);
+                printf("The address of patient is : %s\n",ptr->address);
+                printf("Phone Number:%d\n",ptr->phone);
+                printf("The blood group of patient is:%s\n",ptr->bloodgroup);
+                printf("---------------------------------------------------\n");
+                ptr=ptr->next;
+        }
+    }
+    getchar();
+}
 void table()
 {
     printf("\t\tPlease Refer this Table for your disease!\n");
