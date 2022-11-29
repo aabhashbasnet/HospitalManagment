@@ -56,6 +56,50 @@ int main()
     }
 }while(option!=4);
 }
+struct node *insert(struct node *start)
+{
+    int val2,val4,val6,pri;
+    char val1,val3,val5;
+    struct node *ptr,*p;
+    char* name[100];
+    char* address[100];
+    ptr=(struct node*)malloc(sizeof(struct node));
+    printf("Enter patient Name:");
+    scanf(" %s",ptr-> name);
+    printf("Enter the patient's age:");
+    scanf("%d",&val2);
+    printf("Enter your home address:");
+    scanf(" %s",ptr->address);
+    printf("Enter your phone number:");
+    scanf("%d",&val4);
+    printf("Enter the blood group of Patient:");
+    scanf(" %s",ptr->bloodgroup);
+    printf("Enter the reg no:");
+    scanf("%d",&val6);
+    printf("Enter your disease Number:");
+    table();
+    scanf("%d",&pri);
+    //ptr->name=name;
+    ptr->age=val2;
+    //ptr->address=address;
+    ptr->phone=val4;
+    ptr->reg=val6;
+    ptr->priority=pri;
+    if((start==NULL)||pri<start->priority)
+    {
+        ptr->next=start;
+        start=ptr;
+    }
+    else
+        {
+            p=start;
+            while(p->next!=NULL && p->next->priority <=pri)
+                p=p->next;
+            ptr->next=p->next;
+            p->next=ptr;
+        }
+        return start;
+};
 struct node *delete(struct node *start)
 {
     struct node *ptr;
